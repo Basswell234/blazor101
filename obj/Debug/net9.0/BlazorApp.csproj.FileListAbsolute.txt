@@ -72,3 +72,4 @@
 /Users/macprom1/Desktop/Everything/Coding Projects/Servers/BlazorApp/obj/Debug/net9.0/BlazorApp.pdb
 /Users/macprom1/Desktop/Everything/Coding Projects/Servers/BlazorApp/obj/Debug/net9.0/BlazorApp.genruntimeconfig.cache
 /Users/macprom1/Desktop/Everything/Coding Projects/Servers/BlazorApp/obj/Debug/net9.0/ref/BlazorApp.dll
+/Users/macprom1/Desktop/Everything/Coding Projects/Servers/BlazorApp/obj/Debug/net9.0/BlazorApp.sourcelink.json

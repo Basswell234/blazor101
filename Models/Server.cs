@@ -4,11 +4,11 @@ namespace BlazorApp.Models;
 
 public class Server
 {
-    public Server(int serverId, string? name, bool isOnline, string? city)
+    public Server()
     {
         Random random = new Random();
         int randomnumber = random.Next(0, 2);
-        isOnline = randomnumber == 0? false : true;
+        IsOnline = randomnumber == 0? false : true;
     }
     public int ServerId { get; set; }
     public string? Name { get; set; }

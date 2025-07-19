@@ -1,7 +1,9 @@
-﻿<p>
-    @status at @DateTime.Now.ToString("T")
-</p>
+﻿<div data-status="@server.Name is @(server.IsOnline ? "online" : "offline")"
+    style="color: @(server.IsOnline?"green":"Red")">
+    @server.Name is in @server.City that is @(server.IsOnline ? "online" : "offline")
+</div>
 
 @code {
+    private Server server = new Server{Name = "Server 1", City = "New York"};
     private string status = "Server is online";
 }
