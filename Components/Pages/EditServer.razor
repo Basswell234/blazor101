@@ -1,0 +1,25 @@
+﻿@page "/servers/edit/{Id:int}"
+
+<h3>Edit Server Page</h3>
+
+@if(server != null){
+    <p>
+        <strong>Server Name:</strong> @server.Name<br />
+        <strong>City:</strong> @server.City<br />
+        <strong>Status:</strong> @server.IsOnline<br />
+     </p>
+}
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private Server? server;
+
+    protected override void OnParametersSet()
+    {
+        server = ServersRepository.GetServerById(Id);
+    }
+
+}

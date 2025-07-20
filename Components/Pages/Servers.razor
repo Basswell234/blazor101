@@ -1,11 +1,41 @@
 ﻿@page "/servers"
 
 <h3>Servers</h3>
-<br><br>
-<ServerComponent/>
+
+<div class="container-fluid text-center">
+    <div class="row w-100">
+        @foreach(var city in cities)
+        {
+            <div class="card" style="width: 15rem; margin:5px">
+                <img src="@($"/images/{city}.png")" class="card-img-top" alt="Image of the city">
+                <div class="card-body">
+                    <h5 class="card-title">The City of @city</h5>
+                    <p class="card-text">Some quick example text to build on the card title</p>
+                    <button type="button" class="btn btn-primary" style="margin: 5px;">
+                        <span>@city</span>
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 <br>
-<ServerComponent/>
+
+<ul>
+    @foreach (var server in servers)
+    {
+        <li>
+            @server.Name in @server.City is <span style="color: @(server.IsOnline ? "green" : "red")">
+                @(server.IsOnline ? "online" : "offline")
+            </span><span><button class="btn btn-warning" style="margin: 5px;">
+                <NavLink class="nav-link" href=@($"/servers/edit/{server.ServerId}")>Edit</NavLink>
+            </button></span>
+        </li>
+    }
+</ul>
+
 
 @code {
-
+    private List<Server> servers = ServersRepository.GetServersByCity("New York");
+    private List<string> cities = CitiesRepository.GetCities();    
 }
