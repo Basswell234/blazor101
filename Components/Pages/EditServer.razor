@@ -3,11 +3,11 @@
 <h3>Edit Server Page</h3>
 
 @if(server != null){
-    <p>
-        <strong>Server Name:</strong> @server.Name<br />
-        <strong>City:</strong> @server.City<br />
-        <strong>Status:</strong> @server.IsOnline<br />
-     </p>
+    <EditForm Model="server">
+        <InputText @bind-Value="server.Name" class="form-control" placeholder="Server Name" /> <br>
+        <InputText @bind-Value="server.City" class="form-control" placeholder="City" /> <br>
+        <InputCheckbox @bind-Value="server.IsOnline" class="form-check-input" />
+    </EditForm>
 }
 <span>
     <button class="btn btn-primary" style="margin: 5px;">
