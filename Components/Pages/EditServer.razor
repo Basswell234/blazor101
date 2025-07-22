@@ -1,9 +1,14 @@
 ﻿@page "/servers/edit/{Id:int}"
+@using Microsoft.AspNetCore.Components.Routing
+
+
+
+Made changes.
 
 <h3>Edit Server Page</h3>
 
 @if(server != null){
-    <EditForm Model="server">
+    <EditForm Model="server" FormName="formServer" OnSubmit="SubmitForm">
         <div class="row mb-3">
             <div class="col-1">
                 <label class="col-form-label">Name</label>
@@ -28,25 +33,38 @@
             <div class="col-3">
                 <InputCheckbox @bind-Value="server.IsOnline" class="form-check-input" />
             </div>
-        </div>
+        </div><br>
+        <span>
+            <button class="btn btn-primary" style="margin: 5px;">
+                    <NavLink class="nav-link" href="servers">Close</NavLink>
+            </button>
+        </span>
+        <span>
+            <button class="btn btn-success" type="submit" >Update</button>
+        </span>
+
     </EditForm>
 }
-<span>
-    <button class="btn btn-primary" style="margin: 5px;">
-            <NavLink class="nav-link" href="servers">Close</NavLink>
-    </button>
-</span>
+
 
 @code {
 
     [Parameter]
     public int Id { get; set; }
 
-    private Server? server;
+    [SupplyParameterFromForm]
+    private Server? server{get; set;}
 
     protected override void OnParametersSet()
     {
-        server = ServersRepository.GetServerById(Id);
+        server ??= ServersRepository.GetServerById(Id);
     }
 
+    private void SubmitForm()
+    {
+       if(server != null)
+       {
+           ServersRepository.UpdateServer(server.ServerId, server);
+       }
+    }
 }
