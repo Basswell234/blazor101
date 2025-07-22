@@ -1,5 +1,6 @@
 ﻿@page "/servers/edit/{Id:int}"
 @using Microsoft.AspNetCore.Components.Routing
+@inject NavigationManager NavigationManager
 
 <h3>Edit Server Page</h3>
 
@@ -73,5 +74,7 @@
        {
            ServersRepository.UpdateServer(server.ServerId, server);
        }
+        
+        NavigationManager.NavigateTo("/servers"); 
     }
 }
