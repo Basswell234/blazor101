@@ -9,6 +9,8 @@ Made changes.
 
 @if(server != null){
     <EditForm Model="server" FormName="formServer" OnSubmit="SubmitForm">
+        
+        <InputNumber @bind-Value="server.ServerId" class="form-control" hidden /><br>
         <div class="row mb-3">
             <div class="col-1">
                 <label class="col-form-label">Name</label>
