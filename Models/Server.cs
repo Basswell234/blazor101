@@ -12,6 +12,7 @@ public class Server
         IsOnline = randomnumber == 0? false : true;
     }
     public int ServerId { get; set; }
+    
     [Required(ErrorMessage = "Name is required")]
     public string? Name { get; set; }
     public bool IsOnline { get; set; }
