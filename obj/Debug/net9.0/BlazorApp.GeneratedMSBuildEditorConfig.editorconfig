@@ -28,6 +28,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Db250cm9scy9TZXJ2ZXJDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/macprom1/Desktop/Everything/Coding Projects/Servers/BlazorApp/Components/Pages/AddServer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BZGRTZXJ2ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/macprom1/Desktop/Everything/Coding Projects/Servers/BlazorApp/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Db3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

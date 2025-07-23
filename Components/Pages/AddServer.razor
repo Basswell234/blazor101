@@ -1,0 +1,42 @@
+﻿@page "/servers/add"
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+
+<h3>Add Server</h3>
+<br>
+<EditForm Model="newServer" FormName="formServer" OnValidSubmit="Submit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="serverName" class="form-label">Server Name</label>
+        <InputText id="serverName" @bind-Value="newServer.Name" class="form-control" placeholder="Enter server name" />
+        <ValidationMessage For="@(() => newServer.Name)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="serverCity" class="form-label">City</label>
+        <InputText id="serverCity" @bind-Value="newServer.City" class="form-control" placeholder="Enter city" />
+        <ValidationMessage For="@(() => newServer.City)" />
+    </div>
+
+    <div class="mb-3 form-check">
+        <InputCheckbox id="isOnline" @bind-Value="newServer.IsOnline" class="form-check-input" />
+    </div>
+    <span>
+        <button class="btn btn-success" type="submit" >Add Server</button>
+    </span>
+ </EditForm>
+
+
+@code {
+    
+    [SupplyParameterFromForm]
+    private Server newServer {get; set; }= new Server(){IsOnline = false};
+
+    private void Submit()
+    {
+        ServersRepository.AddServer(newServer);
+        NavigationManager.NavigateTo("/servers");
+    }
+}
